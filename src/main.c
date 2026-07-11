@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "trie.h"
+#include "file_parsing.h"
 
 int	char_to_idx(char c)
 {
@@ -75,30 +76,8 @@ int	insert_key(struct trie_node *tree, char const *key)
 	return 0;
 }
 
-#define BUFFER_SIZE 1024
-int	get_titles_from_buffer(char const *buffer, struct trie_node *tree)
-{
-	while (1) {
-	
-	}
-}
-
 int	load_data_base(struct trie_node *tree)
 {
-	int		fd = open("data_base/songs.txt", O_RDONLY);
-	char	buffer[BUFFER_SIZE];
-	char	*free_buffer;
-	
-	if (fd == -1)
-		return 1;
-	while (1) {
-		ssize_t	ret = read(fd, free_buffer, BUFFER_SIZE - (free_buffer - buffer));
-		if (ret == -1)
-			return 1;
-		if (ret == 0)
-			return 0;
-		get_titles_from_buffer(buffer, &free_buffer, tree);
-	}
 }
 
 int	prefix_match(struct trie_node *tree, char const *prefix)
